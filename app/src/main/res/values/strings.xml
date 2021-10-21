@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BusinessCardApp</string>
+    <string name="label_business_card">Business Card</string>
 </resources>
