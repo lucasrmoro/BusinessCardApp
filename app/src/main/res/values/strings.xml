@@ -8,4 +8,6 @@
     <string name="label_company">Company</string>
     <string name="label_color">Color</string>
     <string name="label_save">Save</string>
+    <string name="label_something_went_wrong">Something went wrong, try again later</string>
+    <string name="label_successfully_saved">Successfully saved!</string>
 </resources>
