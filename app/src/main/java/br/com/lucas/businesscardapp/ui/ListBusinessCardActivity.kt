@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.lucas.businesscardapp.databinding.ActivityListBusinessCardBinding
+import br.com.lucas.businesscardapp.util.Image
 
 class ListBusinessCardActivity : AppCompatActivity() {
 
@@ -26,6 +27,9 @@ class ListBusinessCardActivity : AppCompatActivity() {
     private fun insertListeners() {
         binding.addFab.setOnClickListener {
             AddBusinessCardActivity.launchScreen(this)
+        }
+        adapter.listenerShare = { card ->
+            Image.share(this@ListBusinessCardActivity, card)
         }
     }
 

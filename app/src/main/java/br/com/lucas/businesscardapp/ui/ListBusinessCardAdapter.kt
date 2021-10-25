@@ -1,9 +1,11 @@
 package br.com.lucas.businesscardapp.ui
 
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -43,7 +45,7 @@ class ListBusinessCardAdapter :
             binding.cvBusinessCard.setCardBackgroundColor(
                 Color.parseColor(businessCard.customBackground)
             )
-            binding.root.setOnClickListener {
+            binding.cvBusinessCard.setOnClickListener {
                 listenerShare(it)
             }
         }
