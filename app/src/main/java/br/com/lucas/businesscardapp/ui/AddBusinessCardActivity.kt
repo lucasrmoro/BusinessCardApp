@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import br.com.lucas.businesscardapp.R
 import br.com.lucas.businesscardapp.core.extensions.checkFieldIsEmpty
+import br.com.lucas.businesscardapp.core.extensions.hideSoftKeyboard
 import br.com.lucas.businesscardapp.core.extensions.toast
 import br.com.lucas.businesscardapp.data.BusinessCard
 import br.com.lucas.businesscardapp.databinding.ActivityAddBusinessCardBinding
@@ -30,6 +31,7 @@ class AddBusinessCardActivity : AppCompatActivity() {
             finish()
         }
         binding.tilColor.editText?.setOnClickListener{
+            it.hideSoftKeyboard()
             ColorPickerDialog
                 .Builder(this)
                 .setColorShape(ColorShape.SQAURE)
@@ -40,7 +42,7 @@ class AddBusinessCardActivity : AppCompatActivity() {
                 .show()
         }
         binding.btnSave.setOnClickListener {
-            var businessCard = BusinessCard(
+            val businessCard = BusinessCard(
                 name = checkFieldIsEmpty(binding.tilName.editText?.text!!, getString(R.string.label_undefined_name)),
                 phone = checkFieldIsEmpty(binding.tilPhone.editText?.text!!, getString(R.string.label_undefined_phone)),
                 email = checkFieldIsEmpty(binding.tilEmail.editText?.text!!, getString(R.string.label_undefined_email)),
