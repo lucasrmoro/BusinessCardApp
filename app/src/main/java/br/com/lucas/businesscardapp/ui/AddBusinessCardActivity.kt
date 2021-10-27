@@ -10,6 +10,8 @@ import br.com.lucas.businesscardapp.core.extensions.checkFieldIsEmpty
 import br.com.lucas.businesscardapp.core.extensions.toast
 import br.com.lucas.businesscardapp.data.BusinessCard
 import br.com.lucas.businesscardapp.databinding.ActivityAddBusinessCardBinding
+import com.github.dhaval2404.colorpicker.ColorPickerDialog
+import com.github.dhaval2404.colorpicker.model.ColorShape
 
 class AddBusinessCardActivity : AppCompatActivity() {
 
@@ -26,6 +28,16 @@ class AddBusinessCardActivity : AppCompatActivity() {
     private fun insertListeners() {
         binding.btnClose.setOnClickListener {
             finish()
+        }
+        binding.tilColor.editText?.setOnClickListener{
+            ColorPickerDialog
+                .Builder(this)
+                .setColorShape(ColorShape.SQAURE)
+                .setDefaultColor(R.color.gray)
+                .setColorListener { _, colorHex ->
+                    binding.tilColor.editText?.setText(colorHex)
+                }
+                .show()
         }
         binding.btnSave.setOnClickListener {
             var businessCard = BusinessCard(
