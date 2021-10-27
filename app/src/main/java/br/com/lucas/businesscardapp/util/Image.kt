@@ -11,6 +11,7 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import androidx.core.content.FileProvider
 import br.com.lucas.businesscardapp.R
 import br.com.lucas.businesscardapp.core.extensions.toast
 import java.io.File
@@ -70,7 +71,9 @@ class Image {
                 // Saving image on Android below 10 or Q
                 val imagesDirectory = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
                 val image = File(imagesDirectory, fileName)
-                shareIntent(context, Uri.fromFile(image))
+                val imageUri = FileProvider.getUriForFile(context,
+                    context.applicationContext.packageName + ".provider", image)
+                shareIntent(context, imageUri)
                 fos = FileOutputStream(image)
             }
 
