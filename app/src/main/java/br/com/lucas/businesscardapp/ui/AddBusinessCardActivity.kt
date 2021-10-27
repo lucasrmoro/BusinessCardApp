@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import br.com.lucas.businesscardapp.R
+import br.com.lucas.businesscardapp.core.extensions.checkFieldIsEmpty
 import br.com.lucas.businesscardapp.core.extensions.toast
 import br.com.lucas.businesscardapp.data.BusinessCard
 import br.com.lucas.businesscardapp.databinding.ActivityAddBusinessCardBinding
@@ -27,12 +28,13 @@ class AddBusinessCardActivity : AppCompatActivity() {
             finish()
         }
         binding.btnSave.setOnClickListener {
-            val businessCard = BusinessCard(
-                name = binding.tilName.editText?.text.toString(),
-                phone = binding.tilPhone.editText?.text.toString(),
-                email = binding.tilEmail.editText?.text.toString(),
-                company = binding.tilCompany.editText?.text.toString(),
-                customBackground = binding.tilColor.editText?.text.toString(),
+            var businessCard = BusinessCard(
+                name = checkFieldIsEmpty(binding.tilName.editText?.text!!, getString(R.string.label_undefined_name)),
+                phone = checkFieldIsEmpty(binding.tilPhone.editText?.text!!, getString(R.string.label_undefined_phone)),
+                email = checkFieldIsEmpty(binding.tilEmail.editText?.text!!, getString(R.string.label_undefined_email)),
+                company = checkFieldIsEmpty(binding.tilCompany.editText?.text!!, getString(R.string.label_undefined_company)),
+                customBackground = checkFieldIsEmpty(binding.tilColor.editText?.text!!,
+                    resources.getString(0+R.color.gray)),
             )
             try {
                 viewModel.insert(this, businessCard)

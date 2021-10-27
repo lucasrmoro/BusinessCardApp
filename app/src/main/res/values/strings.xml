@@ -11,4 +11,8 @@
     <string name="label_something_went_wrong">Something went wrong, try again later</string>
     <string name="label_successfully_saved">Successfully saved!</string>
     <string name="label_share">Share</string>
+    <string name="label_undefined_name">Undefined Name</string>
+    <string name="label_undefined_phone">Undefined Phone</string>
+    <string name="label_undefined_email">Undefined E-Mail</string>
+    <string name="label_undefined_company">Undefined Company</string>
 </resources>
